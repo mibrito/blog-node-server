@@ -1,0 +1,35 @@
+{
+  "name": "blog-node-server",
+  "version": "1.0.0",
+  "description": "An API server for a simple blog made with node and restify",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mibrito/blog-node-server.git"
+  },
+  "keywords": [
+    "blog",
+    "api",
+    "restify"
+  ],
+  "author": "Michele Brito Pinheiro",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/mibrito/blog-node-server/issues"
+  },
+  "homepage": "https://github.com/mibrito/blog-node-server",
+  "dependencies": {
+    "body-parser": "^1.10.2",
+    "bunyan": "^1.3.3",
+    "express": "^4.11.1",
+    "mongoose": "^3.8.22"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.1.0",
+    "superagent": "^0.21.0"
+  }
+}
