@@ -7,11 +7,11 @@ describe("applications.routes spec", function () {
 		superagent.post('http://localhost:3000/posts')
 			.type('form')
 			.send({
-				title:'Test post',
-				body: 'POST Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+				'title':'Test post',
+				'content': 'POST Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 			})
 			.end(function(e,res){
-				console.log(res.body);
+				// console.log(res.body);
 				expect(e).to.eql(null);
 				expect(res.status).to.not.equal(404);
 				expect(res.status).to.not.equal(500);
@@ -52,14 +52,15 @@ describe("applications.routes spec", function () {
 			});
 	});
 
-	it('updates an object', function(done){
+	it('Updates an object', function(done){
 		superagent.put('http://localhost:3000/posts/'+id)
+			.type('form')
 			.send({
 				title: 'Test put',
-				body: 'PUT Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+				content: 'PUT Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 			})
 			.end(function(e, res){
-				//console.log(res.body);
+				// console.log(res.body);
 				expect(e).to.eql(null);
 				expect(typeof res.body).to.eql('object');
 				expect(res.body.msg).to.eql('success');

@@ -4,7 +4,8 @@
   "description": "An API server for a simple blog made with node and restify",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -w"
+    "test": "mocha -w",
+    "start": "node server | ./node_modules/.bin/bunyan -L"
   },
   "repository": {
     "type": "git",
