@@ -1,6 +1,9 @@
-#################  
+#################
 ## npm
 #################
 
 npm-debug.log
 node_modules/
+
+# oauth secrets
+passport/strategies
