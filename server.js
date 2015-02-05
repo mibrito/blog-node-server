@@ -47,10 +47,8 @@ server.get(
 
 require('./app/routes/posts.routes')(server, express, log);
 
-
-
-// Start app ===============================================
-// startup our app at http://localhost:3000
+// Start server ================================================================
+// startup our server at http://localhost:3000
 server.listen(port);
 
 // shoutout to the user

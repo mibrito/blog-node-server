@@ -23,6 +23,7 @@ module.exports = function(server, express, log){
 	//app.use(methodOverride('X-HTTP-Method-Override'));
 
 	// CUSTOM MIDDLEWARES
-	require("./nodejs-express-cors")(server);
+	require("./cors.middleware")(server);
 	require("./logger.middleware")(server, log);
+	require("./passport/passport.middleware.js")(server);
 };
