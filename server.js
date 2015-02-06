@@ -15,7 +15,11 @@ db.connect();
 
 // set our port
 var port	= process.env.PORT || 3000;
-var server		= express();
+var server	= express();
+
+// set jade as render engine
+server.set('views', path.join(__dirname, 'app/views'));
+server.set('view engine', 'jade');
 
 
 var log = bunyan.createLogger({
@@ -41,7 +45,7 @@ require("./app/middlewares/middlewares")(server,express, log);
 server.get(
 	'/',
 	function(req, res){
-		res.send("Wellcome to NodeBlog' API!");
+		res.send("Wellcome to The Blog's API!");
 	}
 );
 
@@ -49,6 +53,7 @@ require('./app/routes/posts.routes')(server, express, log);
 
 // Start server ================================================================
 // startup our server at http://localhost:3000
+
 server.listen(port);
 
 // shoutout to the user

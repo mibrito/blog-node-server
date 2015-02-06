@@ -1,0 +1,24 @@
+extends ../layout.jade
+block content
+
+	if message.length > 0
+		div.alert
+		.alert-danger
+			= message
+
+	form(action="/login", method="post")
+		div.form-group
+			label Email
+			input(type="text", name="email", placeholder="Email")
+		div.form-group
+			label Password
+			input(type="password", name="password", placeholder="Password")
+
+		button(type="submit", class="btn btn-warning btn-lg") Login
+	hr
+	p
+		.I don't have an account. Click
+			&nbsp;
+			a(href="/signup") here
+		br
+		a(href="/") Go back

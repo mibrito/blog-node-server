@@ -1,0 +1,130 @@
+extends ../layout.jade
+block content
+	a(href="./logout", class="btn btn-default btn-sm") Logout
+	div.row
+		h3.profileKind Local
+			if(user.local.linked_at)
+				p
+					strong
+						|id:&nbsp;
+						=user._id
+					br
+					strong
+						|email:&nbsp;
+						=user.local.email
+					br
+					strong
+						|Linked at:&nbsp;
+						=user.local.linked_at
+			div.linkProfile
+				if(!user.local.password)
+					a(href="/connect/local", class="btn btn-default") Connect Local
+				else
+					a(href="/unlink/local", class="btn btn-default") Unlink
+
+		h3.profileKind Twitter
+			if(user.twitter.linked_at)
+				p
+					strong
+						|Id:&nbsp;
+						=user.twitter.id
+					br
+					strong
+						|Name:&nbsp;
+						=user.twitter.displayName
+					br
+					strong
+						|Page:&nbsp;
+						a(href="https://twitter.com/"+user.twitter.username, target = "_blank")
+							='https://twitter.com/'+user.twitter.username
+					br
+					strong
+						|Linked at:&nbsp;
+						=user.twitter.linked_at
+					br
+					strong
+						|Token:&nbsp;
+						br
+						=user.twitter.token
+
+			div.linkProfile
+				if(!user.twitter.token)
+					a(href="/connect/twitter", class="btn btn-default") Connect Twitter
+				else
+					a(href="/unlink/twitter", class="btn btn-default") Unlink
+
+	div.row
+		h3.profileKind Facebook
+			if(user.facebook.linked_at)
+				p
+					strong
+						|Id:&nbsp;
+						=user.facebook.id
+					br
+					strong
+						|Name:&nbsp;
+						=user.facebook.name
+					br
+					strong
+						|Page:&nbsp;
+						a(href=user.facebook.profileUrl, target = "_blank")
+							=user.facebook.profileUrl
+					br
+					if(!user.facebook.unlinked_at)
+						strong
+							|Linked at:&nbsp;
+							=user.facebook.linked_at
+						br
+					else
+						strong
+							|UnLinked at:&nbsp;
+							=user.facebook.unlinked_at
+						br
+
+					strong
+						|Token:&nbsp;
+						br
+						=user.facebook.token
+
+			div.linkProfile
+				if(!user.facebook.token)
+					a(href="/connect/facebook", class="btn btn-default") Connect Facebook
+				else
+					a(href="/unlink/facebook", class="btn btn-default") Unlink
+
+		h3.profileKind Google
+			if(user.google.linked_at)
+				p
+					strong
+						|Id:&nbsp;
+						=user.google.id
+					br
+					strong
+						|Name:&nbsp;
+						=user.google.name
+					br
+					strong
+						|Email:&nbsp;
+						=user.google.email
+					br
+					if(!user.google.unlinked_at)
+						strong
+							|Linked at:&nbsp;
+							=user.google.linked_at
+						br
+					else
+						strong
+							|UnLinked at:&nbsp;
+							=user.google.unlinked_at
+						br
+					strong
+						|Token:&nbsp;
+						br
+						=user.google.token
+			div.linkProfile
+				if(!user.google.token)
+					a(href="/connect/google", class="btn btn-default") Connect Google
+				else
+					a(href="/unlink/google", class="btn btn-default") Unlink
+
+	a(href="./logout", class="btn btn-default btn-sm") Logout

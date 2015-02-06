@@ -1,13 +1,17 @@
 // login
-var passport = require('passport');
-var flash    = require('connect-flash');
+var flash	= require('connect-flash');
+var session	= require('express-session');
 
-module.exports = function(server){
+module.exports = function(server, passport){
 	// passport login
-	app.use(passport.initialize());
-	app.use(passport.session());
-	app.use(flash()); // use connect-flash for flash messages stored in session
+	server.use(passport.initialize());
+	server.use(session({
+		secret:			'keyboard cat',
+		resave:			false,
+		saveUninitialized:	false
+	}));
+	server.use(flash()); // use connect-flash for flash messages stored in session
 
 	require("./config").config(passport);
-	require("./routes")(app, passport);
+	require("./routes")(server);
 };

@@ -1,0 +1,28 @@
+extends layout
+block content
+	if(!isAuthenticated)
+		div.login
+			p.
+				Login or register with:
+			a(href="/login", class="btn btn-default") Login
+			br
+			a(href="/signup", class="btn btn-default") Signup
+			br
+			a(href="/auth/twitter", class="btn btn-default") Twitter
+			br
+			a(href="/auth/facebook", class="btn btn-default") Facebook
+			br
+			a(href="/auth/google", class="btn btn-default") Google
+	else
+		p
+			|Welcome
+			br
+			= user.local.email
+
+	if(apps.length>0)
+		h2 Applications
+		//- for com quebra de linha
+		- each app in apps
+			br
+			a(href="app/"+app._id)
+				= app.name

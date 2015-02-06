@@ -2,18 +2,18 @@ var local = require('./strategies/local');
 var google = require('./strategies/google');
 var twitter = require('./strategies/twitter');
 var facebook = require('./strategies/facebook');
-
-var config = require('./config');
-
 /**
  * route services to oauth
  */
 
 module.exports = function(app, passport){
 
+	var config = require('./config');
+
 // NEW ACCOUNTS =====================
 
 	// LOCAL ----------------------------
+
 
 	// Signup local: show the signup form
 	app.get('/signup', function(req, res){

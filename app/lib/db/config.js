@@ -69,7 +69,7 @@ process.on('SIGINT', function() {
 });
 
 db.model = {
-	//users: require('./User'),
+	users: require('./users.schema'),
 	posts: require('./posts.schema')
 };
 
