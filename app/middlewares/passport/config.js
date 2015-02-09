@@ -8,9 +8,9 @@ exports.routes = {
 };
 
 exports.views = {
-	login: 'passportviews/login',
-	signup: 'passportviews/signup',
-	profile: 'passportviews/profile',
+	login: 'passport/login',
+	signup: 'passport/signup',
+	profile: 'passport/profile',
 };
 
 exports.twitter = {
